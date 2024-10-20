@@ -1,0 +1,14 @@
+services:
+  sfstack-postgresql:
+    container_name: sfstack-postgresql
+    image: postgis/postgis:16-3.4
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - sfstack-postgresql-data:/var/lib/postgresql/data
+
+volumes:
+  sfstack-postgresql-data:

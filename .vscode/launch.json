@@ -1,0 +1,38 @@
+{
+  "configurations": [
+    {
+      "name": "Server",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/SFStack.Server/SFStack.Server.csproj"
+    },
+    {
+      "name": "Client",
+      "runtimeArgs": ["run-script", "dev"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/sfstack.client"
+    },
+    {
+      "name": "Browser",
+      "request": "launch",
+      "type": "msedge",
+      "url": "https://localhost:7000",
+      "webRoot": "${workspaceFolder}/sfstack.client"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Compound",
+      "configurations": ["Server", "Client", "Browser"],
+      "presentation": {
+        "hidden": false,
+        "group": "",
+        "order": 1
+      },
+      "stopAll": true
+    }
+  ]
+}
